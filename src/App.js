@@ -1,25 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
-
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+const Button = (props) => {
+  // your code here
+};
 function App() {
+  const reset = () => {
+    console.log("reset");
+    setName("");
+  };
+
+  const [name, setName] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input value={name} onChange={(event) => setName(event.target.value)} placeholder="Type your name"></input>
+      <button onClick={reset}>Reset</button>
+      
+      {name && <h1>Hello {name}</h1>}
+      
     </div>
   );
 }
 
 export default App;
+
+
